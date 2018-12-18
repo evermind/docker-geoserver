@@ -3,7 +3,7 @@ FROM library/openjdk:8-jre-alpine
 ARG VERSION
 
 RUN \
-    apk add --update --no-cache fontconfig && \
+    apk add --update --no-cache fontconfig ttf-dejavu && \
     adduser -h /opt/geoserver-${VERSION} -s /bin/sh -D -H geoserver && \
     mkdir -p /opt && \
     cd /opt && \
