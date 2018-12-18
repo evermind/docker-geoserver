@@ -15,7 +15,7 @@ RUN \
 USER geoserver
 WORKDIR /opt/geoserver-${VERSION}
 
-VOLUME /opt/geoserver_data_dir
+VOLUME /opt/geoserver_data_dir /opt/geoserver_data_dir/data
 
 ENV \
   GEOSERVER_HOME=/opt/geoserver-${VERSION} \
