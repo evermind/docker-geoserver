@@ -3,7 +3,8 @@ FROM library/openjdk:8-jre-alpine
 ARG VERSION
 
 RUN \
-	adduser -h /opt/geoserver-${VERSION} -s /bin/sh -D -H geoserver && \
+    apk add --update --no-cache fontconfig && \
+    adduser -h /opt/geoserver-${VERSION} -s /bin/sh -D -H geoserver && \
     mkdir -p /opt && \
     cd /opt && \
     wget -q http://sourceforge.net/projects/geoserver/files/GeoServer/${VERSION}/geoserver-${VERSION}-bin.zip && \
