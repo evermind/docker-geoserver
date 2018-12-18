@@ -18,3 +18,6 @@ The following volumes exists:
 * /opt/geoserver_data_dir - GEOSERVER_DATA_DIR (contains all configs)
 * /opt/geoserver_data_di/data - Shapefiles - use an volume, and init-container or a host-mounted path to publish data to it
 
+The admin password has can be set via env variable. It defaults to "geoserver":
+
+  GEOSERVER_ADMIN_PASSWORD_HASH=digest1:D9miJH/hVgfxZJscMafEtbtliG0ROxhLfsznyWfG38X2pda2JOSV4POi55PQI4tw
