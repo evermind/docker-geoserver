@@ -7,6 +7,8 @@ Then it checks docker hub if a tag for this release exists already. If not, a ne
 
 The docker image uses the same (semantic) versions as geoserver. There's no "latest" tag!
 
+Available tags: https://hub.docker.com/r/evermind/geoserver/tags
+
 # Usage of the image
 
 docker run -it --rm -p 8080:8080 evermind/geoserver:VERSION
