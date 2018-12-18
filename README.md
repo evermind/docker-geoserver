@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/evermind/docker-geoserver.svg?branch=master)](https://travis-ci.org/evermind/docker-geoserver)
+
 # Automated docker builds for geoserver
 
 This script is triggered daily via travis.ci. It scans http://geoserver.org for current releases.
