@@ -1,0 +1,8 @@
+---
+
+dist: xenial
+lanaguage: minimal
+script:
+  - ./trigger.sh
+notifications:
+  email: false
