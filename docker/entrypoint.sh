@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 
 if [ ! -z "${GEOSERVER_ADMIN_PASSWORD_HASH}" ]; then
   cat << EOF > /opt/geoserver_data_dir/security/usergroup/default/users.xml
@@ -12,4 +12,10 @@ if [ ! -z "${GEOSERVER_ADMIN_PASSWORD_HASH}" ]; then
 EOF
 fi
 
+if [ -d /opt/geoserver_extra_libs ]; then
+  echo "Copying extra libs ... "
+  cp -av /opt/geoserver_extra_libs/*.jar ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib/
+fi
+
+echo "Starting geoserver"
 exec bin/startup.sh
