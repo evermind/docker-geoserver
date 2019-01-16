@@ -10,17 +10,20 @@ RUN \
     wget -q http://sourceforge.net/projects/geoserver/files/GeoServer/${VERSION}/geoserver-${VERSION}-bin.zip && \
     unzip geoserver-${VERSION}-bin.zip && \
     rm -f  geoserver-${VERSION}-bin.zip && \
-    chown -R geoserver /opt/geoserver-${VERSION} && \
-    mv /opt/geoserver-${VERSION}/data_dir /opt/geoserver_data_dir
+    mv /opt/geoserver-${VERSION}/data_dir /opt/geoserver_data_dir_default && \
+    mkdir -p /opt/geoserver_data_dir && \
+    chown -R geoserver /opt/geoserver-${VERSION} /opt/geoserver_data_dir_default /opt/geoserver_data_dir
+
 
 ADD entrypoint.sh /opt/geoserver-${VERSION}/entrypoint.sh
 
 USER geoserver
 WORKDIR /opt/geoserver-${VERSION}
 
-VOLUME /opt/geoserver_data_dir /opt/geoserver_data_dir/data
+VOLUME /opt/geoserver_data_dir
 
 ENV \
+  GEOSERVER_COPY_DEFAULT_DATADIR=true \
   GEOSERVER_HOME=/opt/geoserver-${VERSION} \
   GEOSERVER_DATA_DIR=/opt/geoserver_data_dir \
   GEOSERVER_ADMIN_PASSWORD_HASH=digest1:D9miJH/hVgfxZJscMafEtbtliG0ROxhLfsznyWfG38X2pda2JOSV4POi55PQI4tw 

@@ -12,6 +12,11 @@ if [ ! -z "${GEOSERVER_ADMIN_PASSWORD_HASH}" ]; then
 EOF
 fi
 
+if [ "${GEOSERVER_COPY_DEFAULT_DATADIR}" == "true" ]; then
+  echo "Copying default data dir"
+  cp -av /opt/geoserver_data_dir_default/* /opt/geoserver_data_dir/
+fi
+
 if [ -d /opt/geoserver_extra_libs ]; then
   echo "Copying extra libs ... "
   cp -av /opt/geoserver_extra_libs/*.jar ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib/
