@@ -8,6 +8,7 @@ RUN \
     mkdir -p /opt && \
     cd /opt && \
     wget -q https://sourceforge.net/projects/geoserver/files/GeoServer/${VERSION}/geoserver-${VERSION}-bin.zip && \
+    mkdir -p geoserver-${VERSION} && \
     unzip -d geoserver-${VERSION} geoserver-${VERSION}-bin.zip && \
     rm -f  geoserver-${VERSION}-bin.zip && \
     mv /opt/geoserver-${VERSION}/data_dir /opt/geoserver_data_dir_default && \
